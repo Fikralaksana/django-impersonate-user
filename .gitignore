@@ -1,0 +1,3 @@
+__pycache__/
+dist/
+django_impersonate_user.egg-info/
