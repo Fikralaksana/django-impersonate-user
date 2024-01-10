@@ -14,7 +14,7 @@ Quick start
 
     INSTALLED_APPS = [
         ...,
-        "django_polls",
+        "django_impersonate_user",
         "django.contrib.admin",
     ]
 
