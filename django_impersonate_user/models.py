@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import Permission
 
 
 # Create your models here.
-class DjangoImpersonateUser(models.Model):
+class ImpersonateSupport(Permission):
     class Meta:
         proxy = True
