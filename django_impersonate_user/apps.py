@@ -1,5 +1,4 @@
 from django.apps import AppConfig
-from django.contrib.auth.models import Permission
 
 
 class ImpersonateUserConfig(AppConfig):
@@ -8,6 +7,8 @@ class ImpersonateUserConfig(AppConfig):
     label = "impersonate"
 
     def ready(self) -> None:
+        from django.contrib.auth.models import Permission
+
         Permission.objects.get_or_create(
             name="impersonate_user",
             content_type__name="global_permission",
