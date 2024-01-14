@@ -12,6 +12,5 @@ class ImpersonateUserConfig(AppConfig):
         Permission.objects.get_or_create(
             name="impersonate_user",
             content_type__name="global_permission",
-            app_label=self.label,
             code_name="impersonate",
         )
