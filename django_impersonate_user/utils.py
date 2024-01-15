@@ -22,7 +22,8 @@ def impersonate_user(user: U, request: HttpRequest, auto_permission=True) -> U:
     """
     if auto_permission:
         auto_generate_permission()
-    if user.has_perm("impersonate.impersonate_user") or user.is_superuser:
+    user_class = get_user_model()
+    if user.has_perm(f"{user_class._meta.label}.impersonate") or user.is_superuser:
         user_id = request.COOKIES.get("LOGIN_AS")
         try:
             user = user.__class__.objects.get(id=user_id)
