@@ -4,6 +4,9 @@ from django.contrib.auth.models import AbstractUser
 register = template.Library()
 
 
-def has_impersonate_perm(user: AbstractUser, arg):
+def has_impersonate_perm(user: AbstractUser):
     """Removes all values of arg from the given string"""
     return user.has_perm(f"{user._meta.label}.impersonate")
+
+
+register.filter("has_impersonate_perm", has_impersonate_perm)
