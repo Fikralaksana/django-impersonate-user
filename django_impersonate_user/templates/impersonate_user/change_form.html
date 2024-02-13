@@ -4,7 +4,9 @@
 {% block object-tools-items %}
     {{ block.super }}
     {% if user|has_impersonate_perm or user.is_superuser %}
-      <li><a id="impersonate_user" href="#"><i class="icon-user icon-alpha75"></i>{% trans "Log in as user" %}</a></li>
+      {% if opts.model_name == "user" %}
+        <li><a id="impersonate_user" href="#"><i class="icon-user icon-alpha75"></i>{% trans "Log in as user" %}</a></li>
+      {% endif %}
     
     {% else %}
     {% endif %}
